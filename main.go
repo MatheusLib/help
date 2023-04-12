@@ -7,9 +7,9 @@ import (
 )
 
 type weatherData struct {
-	Name string `json:"name`
+	Name string `json:"address`
 	Main struct {
-		Kelvin float64 `json:"adress"`
+		Kelvin float64 `json:""tzoffset"`
 	} `json:"main"`
 }
 
