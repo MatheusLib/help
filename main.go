@@ -18,8 +18,13 @@ func hello(w http.ResponseWriter, r *http.Request) {
 }
 
 func query(city string) (weatherData, error) {
+	client.Get := http.Client{
+		Timeout: time.Second * 5,
+	}
 
-	resp, err := http.Get("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/delhi/2023-04-12/2023-04-12?unitGroup=metric&include=current&key=MAJBQF5RRFC53FGLHKLEL3SHE&contentType=json")
+
+	
+	resp, err := client.Get("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/delhi/2023-04-12/2023-04-12?unitGroup=metric&include=current&key=MAJBQF5RRFC53FGLHKLEL3SHE&contentType=json")
 	if err != nil {
 		return weatherData{}, err
 	}
